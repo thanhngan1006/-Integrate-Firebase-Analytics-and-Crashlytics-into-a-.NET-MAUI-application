@@ -31,7 +31,7 @@
 		<ApplicationTitle>MauiApp2</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.mauiapp2</ApplicationId>
+		<ApplicationId>com.vothanhngan.mauiapp2</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -79,6 +79,20 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0-android'">
 		<GoogleServicesJson Include="Platforms\Android\google-services.json" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0-ios'">
+                <BundleResource Include="Platforms\iOS\GoogleService-Info.plist">
+                        <Link>GoogleService-Info.plist</Link>
+                </BundleResource>
+	</ItemGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<_ExportSymbolsExplicitly>false</_ExportSymbolsExplicitly>
+	</PropertyGroup>
+
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<_ReferencesLinkerFlags Include="-u __mh_execute_header" />
 	</ItemGroup>
 
 </Project>
