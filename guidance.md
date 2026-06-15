@@ -88,3 +88,6 @@ The dashboard says "1 unprocessed crash" — the crash was captured, but Firebas
 Find the file: MauiApp2.app.dSYM
 In Firebase Console → Crashlytics → dSYMs tab → click Manage → upload that .dSYM folder (zip it first)
 After uploading, the crash will show a full symbolicated stack trace.
+
+
+bin > Debug > net10.0-ios > MauiApp2.app.dSYM
